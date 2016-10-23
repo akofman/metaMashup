@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Sidebar from 'react-sidebar';
 import MaterialTitlePanel from './material_title_panel';
 import SidebarContent from './sidebar_content';
-import MashupIntro from './mashup-intro.mp4';
+import { default as SidebarEmilie} from './Sidebar';
 
 const styles = {
   contentHeaderMenuLink: {
@@ -17,18 +17,16 @@ const styles = {
 };
 
 class App extends Component{
-  constructor(...args) {
-    super(...args);
-    this.state = {
-      docked: false,
-      open: false,
-      transitions: true,
-      touch: true,
-      shadow: true,
-      pullRight: false,
-      touchHandleWidth: 20,
-      dragToggleDistance: 30,
-    };
+  state = {
+    video: require('./mashup-intro.mp4'),
+    docked: false,
+    open: false,
+    transitions: true,
+    touch: true,
+    shadow: true,
+    pullRight: true,
+    touchHandleWidth: 20,
+    dragToggleDistance: 30
   }
 
   onSetOpen = (open) => {
@@ -67,8 +65,18 @@ class App extends Component{
       </p>);
   }
 
+  onSidebarClick = (entry, i) => {
+    console.log('io', entry, i);
+    this.setState({
+      video: entry.video,
+      open: false
+    }, () => {
+      this.refs.video.play()
+    })
+  }
+
   render() {
-    const sidebar = <SidebarContent />;
+    //const sidebar = <SidebarContent />;
 
     const contentHeader = (
       <span>
@@ -78,7 +86,7 @@ class App extends Component{
       </span>);
 
     const sidebarProps = {
-      sidebar: sidebar,
+      sidebar: <SidebarEmilie onClick={ this.onSidebarClick } />,
       docked: this.state.docked,
       sidebarClassName: 'custom-sidebar-class',
       open: this.state.open,
@@ -93,13 +101,14 @@ class App extends Component{
 
     return (
       <Sidebar {...sidebarProps}>
-        <MaterialTitlePanel title={contentHeader}>
-          <div style={styles.content}>
-          <video width="100%" autoPlay>
-            <source src={ MashupIntro } type="video/mp4"/>
-          </video>
-          </div>
-        </MaterialTitlePanel>
+        <div className="Header">
+          <div className="Header__text" onClick={this.menuButtonClick}><img width="64" src={ require('./icon-menu.svg') }/> SOMMAIRE</div>
+        </div>
+        
+        <div style={styles.content}>
+          <video ref="video" src={ this.state.video } width="100%" autoPlay></video>
+        </div>
+      
       </Sidebar>
     );
   }

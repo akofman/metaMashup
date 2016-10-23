@@ -1,0 +1,55 @@
+.Sidebar {
+  width: 350px;
+  height:100%;
+  background: rgb(243, 73, 42);
+}
+
+.Sidebar__top {
+  width: 100%;
+  height: 270px;
+  background-image: url(./menu-top.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top center;
+}
+
+@font-face {font-family:'Gotham Light';src: url(./gotham/Gotham-Light.otf) format('opentype');}
+@font-face {font-family:'Gotham Bold';src: url(./gotham/Gotham-Bold.otf) format('opentype');}
+@font-face {font-family:'Gotham Medium';src: url(./gotham/Gotham-Medium.otf) format('opentype');}
+
+
+.Sidebar__entry {
+  cursor:pointer;
+  color:white;
+  font-family: 'Gotham Light', sans-serif;
+  font-size: 20px;
+  font-weight:normal;
+  padding: 20px 40px 10px 20px;
+  text-align: justify;
+}
+
+.Sidebar__entry:hover {
+  font-style: italic;
+  font-family: 'Gotham Medium', sans-serif;
+}
+
+.Sidebar__entry--active {
+  font-style: italic;
+  font-family: 'Gotham Medium', sans-serif;
+}
+
+.Header {
+  text-align: right;
+  padding-right:20px;
+}
+
+.Header__text img {
+  margin-bottom: -15px;
+}
+
+.Header__text {
+  font-family: 'Gotham Bold';
+  font-size: 44px;
+  cursor:pointer;
+  color: rgb(253, 73, 55);
+}
