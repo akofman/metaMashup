@@ -102,13 +102,13 @@ class App extends Component{
     return (
       <Sidebar {...sidebarProps}>
         <div className="Header">
-          <div className="Header__text" onClick={this.menuButtonClick}><img width="64" src={ require('./icon-menu.svg') }/> SOMMAIRE</div>
+          <div className="Header__text" onClick={this.menuButtonClick}><img width="64" src={ require('./icon-menu.svg') }/></div>
         </div>
-        
-        <div style={styles.content}>
-          <video ref="video" src={ this.state.video } width="100%" autoPlay></video>
+
+        <div>
+          <video styles="width:'100%'" ref="video" src={ this.state.video } width="100%" autoPlay></video>
         </div>
-      
+
       </Sidebar>
     );
   }

@@ -1,12 +1,16 @@
 .Sidebar {
   width: 350px;
-  height:100%;
+  height:492.75px;
   background: rgb(243, 73, 42);
+}
+
+.custom-sidebar-class {
+  height: 493px;
 }
 
 .Sidebar__top {
   width: 100%;
-  height: 270px;
+  height: 180px;
   background-image: url(./menu-top.png);
   background-repeat: no-repeat;
   background-size: contain;
@@ -22,7 +26,7 @@
   cursor:pointer;
   color:white;
   font-family: 'Gotham Light', sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   font-weight:normal;
   padding: 20px 40px 10px 20px;
   text-align: justify;
@@ -45,6 +49,10 @@
 
 .Header__text img {
   margin-bottom: -15px;
+  z-index: 1;
+  position: absolute;
+  top: 25px;
+  right: 35px;
 }
 
 .Header__text {
